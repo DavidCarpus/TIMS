@@ -1,12 +1,9 @@
 import { Request, Response } from 'express';
 import { NextFunction } from 'express-serve-static-core';
 
-// equivalent of older: const express = require('express')
-// import express from 'express';
-const express = require('express')
-// import * as express from 'express';
+import { router } from './router';
 
-// import express = require('express');
+const express = require('express')
 
 const app = express();
 // Allow any method from any host and log requests
@@ -22,13 +19,10 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 	}
 });
 
-
 // Handle POST requests that come in formatted as JSON
 app.use(express.json());
-// A default hello word route
-app.get('/', (req: Request, res: Response) => {
-	res.send({ hello: 'world' });
-});
+
+app.use('/', router);
 
 // start our server on port 4201
 app.listen(4201, '127.0.0.1', function () {
