@@ -1,6 +1,9 @@
+import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -39,7 +42,7 @@ const appRoutes: Routes = [
 		CommitteesComponent,
 		AboutComponent,
 		DepartmentsComponent,
-		PublicRecordsComponent
+		PublicRecordsComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -47,7 +50,14 @@ const appRoutes: Routes = [
 		HttpClientModule,
 		FormsModule,
 		RouterModule.forRoot(appRoutes),
+		FlexLayoutModule,
 		MaterialModule,
+		LayoutModule,
+		MatToolbarModule,
+		MatButtonModule,
+		MatSidenavModule,
+		MatIconModule,
+		MatListModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

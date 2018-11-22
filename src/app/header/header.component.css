@@ -1,0 +1,15 @@
+a{
+	text-decoration: none;
+	font-size: 110%;
+	white-space: normal;
+}
+span{
+	float: left;
+}
+button{
+	font-size: 110%;
+	min-width: min-content;
+}
+.example-spacer {
+	flex: 1 1 auto;
+}
