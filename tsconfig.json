@@ -9,6 +9,7 @@
 		"moduleResolution": "node",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
+		"esModuleInterop": true,
 		"target": "es5",
 		"typeRoots": [
 			"node_modules/@types"
@@ -16,6 +17,17 @@
 		"lib": [
 			"es2017",
 			"dom"
+		]
+	},
+	"paths": {
+		"shared/*": [
+			"app/shared/*"
+		],
+		"state/*": [
+			"app/state/*"
+		],
+		"mocks/*": [
+			"app/../assets/mocks/*"
 		]
 	}
 }

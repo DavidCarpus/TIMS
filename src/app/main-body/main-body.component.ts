@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./main-body.component.css']
 })
 export class MainBodyComponent implements OnInit {
-
+	// shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+	shouldRun = true;
 	constructor() { }
 
 	ngOnInit() {
 	}
-
 }

@@ -5,9 +5,28 @@
 	</h1>
 </div>
 
-<button mat-button
-        [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu">
-	<button mat-menu-item>Item 1</button>
-	<button mat-menu-item>Item 2</button>
-</mat-menu>
+<div class="basic-container">
+	<mat-toolbar class="menu-bar mat-elevation-z1">
+		<span *ngFor="let item of navItems|async">
+			<!-- Handle branch node buttons here -->
+			<span *ngIf="item.children && item.children.length > 0">
+				<button mat-button
+				        [matMenuTriggerFor]="menu.childMenu"
+				        [disabled]="item.disabled">
+					{{item.displayName}}
+				</button>
+				<app-menu-item #menu
+				               [items]="item.children"></app-menu-item>
+			</span>
+			<!-- Leaf node buttons here -->
+			<span *ngIf="!item.children || item.children.length === 0">
+				<button mat-button
+				        color="primary"
+				        [routerLink]="item.route">
+					{{item.displayName}}
+				</button>
+			</span>
+		</span>
+	</mat-toolbar>
+	<!-- <router-outlet></router-outlet> -->
+</div>

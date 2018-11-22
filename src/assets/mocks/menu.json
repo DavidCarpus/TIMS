@@ -1,0 +1,70 @@
+[
+	{
+		"displayName": "About",
+		"iconName": "close",
+		"route": "About"
+	},
+	{
+		"displayName": "Boards And Committees",
+		"iconName": "close",
+		"children": [
+			{
+				"displayName": "Committee 1",
+				"iconName": "group",
+				"route": "Committees"
+			},
+			{
+				"displayName": "Committee 2",
+				"iconName": "group",
+				"route": "Committees"
+			},
+			{
+				"displayName": "Committee 2",
+				"iconName": "group",
+				"route": "Committees"
+			}
+		]
+	},
+	{
+		"displayName": "Departments",
+		"iconName": "close",
+		"children": [
+			{
+				"displayName": "Department 1",
+				"iconName": "group",
+				"route": "Departments"
+			},
+			{
+				"displayName": "Department 2",
+				"iconName": "speaker_notes",
+				"route": "Departments"
+			},
+			{
+				"displayName": "Department 2",
+				"iconName": "speaker_notes",
+				"route": "Departments"
+			}
+		]
+	},
+	{
+		"displayName": "PublicRecords",
+		"iconName": "close",
+		"children": [
+			{
+				"displayName": "PublicRecord 1",
+				"iconName": "group",
+				"route": "PublicRecords"
+			},
+			{
+				"displayName": "PublicRecord 2",
+				"iconName": "speaker_notes",
+				"route": "PublicRecords"
+			},
+			{
+				"displayName": "PublicRecord 2",
+				"iconName": "speaker_notes",
+				"route": "PublicRecords"
+			}
+		]
+	}
+]

@@ -1,5 +1,9 @@
-<p>
-	main-body works!
-</p>
+<mat-sidenav-container class="example-container"
+                       *ngIf="shouldRun">
+	<mat-sidenav mode="side"
+	             opened>Sidenav content</mat-sidenav>
+	<mat-sidenav-content>
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
 
-<router-outlet></router-outlet>
+</mat-sidenav-container>
