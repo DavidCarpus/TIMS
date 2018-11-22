@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,7 +15,7 @@ import { NavItem } from './nav-item';
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent {
 	@Input() title: string;
 	@ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 	menuVisible = true;
@@ -31,13 +31,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 		private http: HttpClient, private breakpointObserver: BreakpointObserver
 	) {
 		this.navItems = this.getMenus$();
-	}
-
-	ngOnInit() {
-		// this.menuVisible = false;
-	}
-	ngAfterViewInit() {
-		this.trigger.openMenu();
 	}
 
 	getMenus$() {

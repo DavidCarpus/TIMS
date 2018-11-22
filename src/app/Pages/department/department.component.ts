@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-department',
 	templateUrl: './department.component.html',
 	styleUrls: ['./department.component.css']
 })
-export class DepartmentComponent implements OnInit {
+export class DepartmentComponent {
 
-	constructor() { }
-
-	ngOnInit() {
-	}
+	constructor(public router: Router, public activatedRoute: ActivatedRoute) { }
 
 }

@@ -32,7 +32,7 @@
 					        [matMenuTriggerFor]="menu.childMenu"
 					        color="primary"
 					        [disabled]="item.disabled">
-						{{'*' +item.displayName}}
+						{{item.displayName}}
 					</button>
 					<app-menu-item #menu
 					               [items]="item.children"></app-menu-item>

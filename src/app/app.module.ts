@@ -23,11 +23,14 @@ import { PublicRecordsComponent } from './Pages/public-records/public-records.co
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'home', pathMatch: 'full' },
-	{ path: 'Departments', component: DepartmentComponent },
 	{ path: 'home', component: HomeComponent },
-	{ path: 'Committees', component: CommitteesComponent },
 	{ path: 'About', component: AboutComponent },
+	{ path: 'Committees', component: CommitteesComponent },
+	{ path: 'Departments', component: DepartmentComponent },
 	{ path: 'PublicRecords', component: PublicRecordsComponent },
+	{ path: 'Committees/:committee', component: CommitteesComponent },
+	{ path: 'Departments/:department', component: DepartmentComponent },
+	{ path: 'PublicRecords/:recordType', component: PublicRecordsComponent },
 ];
 
 @NgModule({

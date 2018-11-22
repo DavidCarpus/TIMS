@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'app-main-body',
 	templateUrl: './main-body.component.html',
 	styleUrls: ['./main-body.component.css']
 })
-export class MainBodyComponent implements OnInit {
+export class MainBodyComponent {
 	// shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 	shouldRun = true;
-	constructor() { }
-
-	ngOnInit() {
-	}
 }

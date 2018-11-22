@@ -11,17 +11,17 @@
 			{
 				"displayName": "Committee 1",
 				"iconName": "group",
-				"route": "Committees"
+				"route": "Committees/Committee1"
 			},
 			{
 				"displayName": "Committee 2",
 				"iconName": "group",
-				"route": "Committees"
+				"route": "Committees/Committee2"
 			},
 			{
-				"displayName": "Committee 2",
+				"displayName": "Committee 3",
 				"iconName": "group",
-				"route": "Committees"
+				"route": "Committees/Committee3"
 			}
 		]
 	},
@@ -32,17 +32,17 @@
 			{
 				"displayName": "Department 1",
 				"iconName": "group",
-				"route": "Departments"
+				"route": "Departments/Department1"
 			},
 			{
 				"displayName": "Department 2",
 				"iconName": "speaker_notes",
-				"route": "Departments"
+				"route": "Departments/Department2"
 			},
 			{
-				"displayName": "Department 2",
+				"displayName": "Department 3",
 				"iconName": "speaker_notes",
-				"route": "Departments"
+				"route": "Departments/Department3"
 			}
 		]
 	},
@@ -53,17 +53,17 @@
 			{
 				"displayName": "PublicRecord 1",
 				"iconName": "group",
-				"route": "PublicRecords"
+				"route": "PublicRecords/1"
 			},
 			{
 				"displayName": "PublicRecord 2",
 				"iconName": "speaker_notes",
-				"route": "PublicRecords"
+				"route": "PublicRecords/2"
 			},
 			{
 				"displayName": "PublicRecord 2",
 				"iconName": "speaker_notes",
-				"route": "PublicRecords"
+				"route": "PublicRecords/3"
 			}
 		]
 	}
