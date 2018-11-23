@@ -1,3 +1,7 @@
 <p>
-  departments works!
+	departments works!
+	{{activatedRoute.url| async|json}}
+	<app-notices [items]='notices$|async'></app-notices>
+	<app-contact-list></app-contact-list>
+	<app-agendas-and-minutes></app-agendas-and-minutes>
 </p>

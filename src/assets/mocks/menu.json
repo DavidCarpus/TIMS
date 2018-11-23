@@ -9,19 +9,19 @@
 		"iconName": "close",
 		"children": [
 			{
-				"displayName": "Committee 1",
+				"displayName": "Board of Selectmen",
 				"iconName": "group",
-				"route": "Committees/Committee1"
+				"route": "BoardsAndCommittees/Selectmen"
 			},
 			{
-				"displayName": "Committee 2",
+				"displayName": "Budget Committee",
 				"iconName": "group",
-				"route": "Committees/Committee2"
+				"route": "BoardsAndCommittees/BudgetCommittee"
 			},
 			{
-				"displayName": "Committee 3",
+				"displayName": "Planning Board",
 				"iconName": "group",
-				"route": "Committees/Committee3"
+				"route": "BoardsAndCommittees/Planning"
 			}
 		]
 	},
@@ -30,19 +30,19 @@
 		"iconName": "close",
 		"children": [
 			{
-				"displayName": "Department 1",
+				"displayName": "Fire",
 				"iconName": "group",
-				"route": "Departments/Department1"
+				"route": "Departments/Fire"
 			},
 			{
-				"displayName": "Department 2",
+				"displayName": "Police",
 				"iconName": "speaker_notes",
-				"route": "Departments/Department2"
+				"route": "Departments/Police"
 			},
 			{
-				"displayName": "Department 3",
+				"displayName": "Public Works",
 				"iconName": "speaker_notes",
-				"route": "Departments/Department3"
+				"route": "Departments/PublicWorks"
 			}
 		]
 	},

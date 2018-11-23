@@ -9,27 +9,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { NoticesComponent } from './Components/notices/notices.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuItemComponent } from './header/menu-item/menu-item.component';
 import { MainBodyComponent } from './main-body/main-body.component';
 import { MaterialModule } from './material.module';
 import { AboutComponent } from './Pages/about/about.component';
-import { CommitteesComponent } from './Pages/committees/committees.component';
+import { BoardsAndCommitteesComponent } from './Pages/boards-and-committees/boards-and-committees.component';
 import { DepartmentComponent } from './Pages/department/department.component';
 import { DepartmentsComponent } from './Pages/departments/departments.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { PublicRecordsComponent } from './Pages/public-records/public-records.component';
+import { ContactListComponent } from './Components/contact-list/contact-list.component';
+import { AgendasAndMinutesComponent } from './Components/agendas-and-minutes/agendas-and-minutes.component';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'home', pathMatch: 'full' },
 	{ path: 'home', component: HomeComponent },
 	{ path: 'About', component: AboutComponent },
-	{ path: 'Committees', component: CommitteesComponent },
-	{ path: 'Departments', component: DepartmentComponent },
+	{ path: 'BoardsAndCommittees', component: BoardsAndCommitteesComponent },
+	{ path: 'Departments', component: DepartmentsComponent },
 	{ path: 'PublicRecords', component: PublicRecordsComponent },
-	{ path: 'Committees/:committee', component: CommitteesComponent },
-	{ path: 'Departments/:department', component: DepartmentComponent },
+	{ path: 'BoardsAndCommittees/:committee', component: BoardsAndCommitteesComponent },
+	{ path: 'Departments/:department', component: DepartmentsComponent },
 	{ path: 'PublicRecords/:recordType', component: PublicRecordsComponent },
 ];
 
@@ -42,10 +45,13 @@ const appRoutes: Routes = [
 		DepartmentComponent,
 		HomeComponent,
 		MenuItemComponent,
-		CommitteesComponent,
+		BoardsAndCommitteesComponent,
 		AboutComponent,
 		DepartmentsComponent,
 		PublicRecordsComponent,
+		NoticesComponent,
+		ContactListComponent,
+		AgendasAndMinutesComponent,
 	],
 	imports: [
 		BrowserModule,
