@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Notice } from 'src/app/Components/notices/notices.component';
+import { NoticesService } from 'src/app/services/notices.service';
 
 @Component({
 	selector: 'app-departments',
@@ -9,24 +11,24 @@ import { Notice } from 'src/app/Components/notices/notices.component';
 	styleUrls: ['./departments.component.css']
 })
 export class DepartmentsComponent implements OnInit {
-	public notices$: BehaviorSubject<Notice[]>;
+	public notices$: Observable<Notice[]>;
+	public organization$: Observable<string>;
 
-	constructor(public router: Router, public activatedRoute: ActivatedRoute) { }
+	constructor(
+		public router: Router,
+		public activatedRoute: ActivatedRoute,
+		private noticesData: NoticesService) { }
 
 	ngOnInit() {
-		const now = new Date(Date.now());
-		const testData: Notice[] = [
-			{ id: 0, description: 'Test 1', postDate: now },
-			{
-				id: 1, description: 'Test 2',
-				postDate: new Date((new Date(now)).setTime(now.getTime() + (1 * 60 * 60 * 1000)))
-			},
-			{
-				id: 2, description: 'Test 3',
-				postDate: new Date((new Date(now)).setTime(now.getTime() + (3 * 60 * 60 * 1000)))
-			},
-		];
-		this.notices$ = new BehaviorSubject(testData);
+		this.activatedRoute.url.subscribe(url => {
+			this.notices$ = this.noticesData.fetchNotices(url[1].toString());
+		});
+		this.organization$ = this.activatedRoute.url.pipe(
+			map(url => {
+				return url[1].toString();
+			})
+		);
+
 	}
 
 }

@@ -1,6 +1,5 @@
-<p>
-	notices works!
-</p>
+<h2>Notices</h2>
 <ul *ngFor='let item of items'>
-	<li>{{item|json}}</li>
+	<li>{{item.description}} (Posted: {{item.postDate| date}})</li>
+	<!-- <li>{{item|json}}</li> -->
 </ul>

@@ -1,8 +1,9 @@
-<p>
-	committees works!
-	{{activatedRoute.url| async|json}}
+<h1>{{organizationName}}</h1>
 
-	<app-notices></app-notices>
+<app-organization-description [data]='organizationDescription$| async'></app-organization-description>
 
+<app-notices [items]='notices$|async'></app-notices>
 
-</p>
+<app-agendas-and-minutes></app-agendas-and-minutes>
+
+<app-document-list></app-document-list>

@@ -13,3 +13,12 @@ button{
 .example-spacer {
 	flex: 1 1 auto;
 }
+
+/* #welcome {
+	padding-top: 4em;
+} */
+#toolbar {
+	position: fixed;
+	top: 0em;
+	z-index: 100;
+}

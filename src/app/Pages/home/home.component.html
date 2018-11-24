@@ -1,3 +1,4 @@
-<p>
-	home works!
-</p>
+<app-notices [items]='notices$|async'></app-notices>
+<div id='calendar'>
+	<app-event-calendar>Loading...</app-event-calendar>
+</div>

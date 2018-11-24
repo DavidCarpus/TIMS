@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'app-agendas-and-minutes',
-	templateUrl: './agendas-and-minutes.component.html',
-	styleUrls: ['./agendas-and-minutes.component.css']
+	selector: 'app-document-list',
+	templateUrl: './document-list.component.html',
+	styleUrls: ['./document-list.component.css']
 })
-export class AgendasAndMinutesComponent implements OnInit {
+export class DocumentListComponent implements OnInit {
 	fillerContent = Array.from({ length: 5 }, () =>
 		`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
