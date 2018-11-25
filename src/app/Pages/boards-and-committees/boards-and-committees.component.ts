@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Notice } from 'src/app/Components/notices/notices.component';
 import { OrganizationDescription } from 'src/app/Components/organization-description/organization-description.component';
-import { NoticesService } from 'src/app/services/notices.service';
+import { OrganizationDataService } from 'src/app/services/organization-data.service';
+import { PublicRecordDataService } from 'src/app/services/public-record-data.service';
 
 @Component({
 	selector: 'app-committees',
@@ -12,26 +14,27 @@ import { NoticesService } from 'src/app/services/notices.service';
 })
 export class BoardsAndCommitteesComponent implements OnInit {
 	public notices$: Observable<Notice[]>;
-	public organizationName: string;
+	public organizationName$: Observable<string>;
 	public organizationDescription$: Observable<OrganizationDescription>;
 
 	constructor(
 		public router: Router,
 		public activatedRoute: ActivatedRoute,
-		private noticesData: NoticesService) { }
+		private publicRecordData: PublicRecordDataService,
+		private orgDesc: OrganizationDataService,
+	) { }
 
 	ngOnInit() {
 		this.activatedRoute.url.subscribe(url => {
 			const orgName = url[1].toString();
-			this.notices$ = this.noticesData.fetchNotices(orgName);
-			if (orgName === 'BudgetCommittee') {
-				this.organizationDescription$ = of({ organization: orgName, description: 'Some Desc' });
-			} else {
-				this.organizationDescription$ = of(null);
-			}
-
-			this.organizationName = orgName;
+			this.notices$ = this.publicRecordData.fetchNotices(orgName);
+			this.organizationDescription$ = this.orgDesc.fetchDescription(orgName);
 		});
+		this.organizationName$ = this.activatedRoute.url.pipe(
+			map(url => {
+				return url[1].toString();
+			})
+		);
 	}
 
 }

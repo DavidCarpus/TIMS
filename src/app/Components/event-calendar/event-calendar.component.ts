@@ -4,6 +4,8 @@ import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, Cal
 import { addDays, addHours, endOfDay, endOfMonth, isSameDay, isSameMonth, startOfDay, subDays } from 'date-fns';
 import { Subject } from 'rxjs';
 
+// https://mattlewis92.github.io/angular-calendar/#/custom-templates
+
 const colors: any = {
 	red: {
 		primary: '#ad2121',

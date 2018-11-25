@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Notice } from 'src/app/Components/notices/notices.component';
+import { OrganizationDescription } from 'src/app/Components/organization-description/organization-description.component';
 import { NoticesService } from 'src/app/services/notices.service';
+import { OrganizationDataService } from 'src/app/services/organization-data.service';
 
 @Component({
 	selector: 'app-departments',
@@ -13,22 +15,32 @@ import { NoticesService } from 'src/app/services/notices.service';
 export class DepartmentsComponent implements OnInit {
 	public notices$: Observable<Notice[]>;
 	public organization$: Observable<string>;
+	public organizationName$: Observable<string>;
+	public organizationDescription$: Observable<OrganizationDescription>;
 
 	constructor(
 		public router: Router,
 		public activatedRoute: ActivatedRoute,
-		private noticesData: NoticesService) { }
+		private orgDesc: OrganizationDataService,
+		private noticesData: NoticesService
+	) { }
 
 	ngOnInit() {
 		this.activatedRoute.url.subscribe(url => {
-			this.notices$ = this.noticesData.fetchNotices(url[1].toString());
+			const orgName = url[1].toString();
+			this.notices$ = this.noticesData.fetchNotices(orgName);
+			this.organizationDescription$ = this.orgDesc.fetchDescription(orgName);
 		});
 		this.organization$ = this.activatedRoute.url.pipe(
 			map(url => {
 				return url[1].toString();
 			})
 		);
-
+		this.organizationName$ = this.activatedRoute.url.pipe(
+			map(url => {
+				return url[1].toString();
+			})
+		);
 	}
 
 }

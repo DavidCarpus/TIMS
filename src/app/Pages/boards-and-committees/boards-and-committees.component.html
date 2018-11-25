@@ -4,6 +4,6 @@
 
 <app-notices [items]='notices$|async'></app-notices>
 
-<app-agendas-and-minutes></app-agendas-and-minutes>
+<app-agendas-and-minutes [organizationName]='organizationName$| async'></app-agendas-and-minutes>
 
-<app-document-list></app-document-list>
+<app-document-list [organizationName]='organizationName$| async'></app-document-list>

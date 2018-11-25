@@ -8,7 +8,7 @@
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e",
-		"server": "cd server && node_modules/.bin/ts-node-dev server.ts",
+		"server": "cd server && node_modules/.bin/ts-node-dev  --inspect-brk=0.0.0.0:9333 server.ts",
 		"serve": "concurrently \"ng serve\" \"npm run server\""
 	},
 	"private": true,

@@ -1,2 +1,7 @@
-<h2>Documentation</h2>
-<p *ngFor="let content of fillerContent">{{content}}</p>
+<ng-container *ngIf='documents$'>
+	<h2>{{heading}}</h2>
+	<ul *ngFor='let item of documents$|async'>
+		<li>{{item.description}} (Posted: {{item.postDate| date}})</li>
+		<!-- <li>{{item|json}}</li> -->
+	</ul>
+</ng-container>

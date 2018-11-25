@@ -11,7 +11,7 @@ export interface OrganizationDescription {
 	styleUrls: ['./organization-description.component.css']
 })
 export class OrganizationDescriptionComponent implements OnInit {
-	@Input() data;
+	@Input() data: OrganizationDescription;
 
 	constructor() { }
 

@@ -1,21 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PublicRecord, PublicRecordDataService } from 'src/app/services/public-record-data.service';
 
 @Component({
 	selector: 'app-document-list',
 	templateUrl: './document-list.component.html',
 	styleUrls: ['./document-list.component.css']
 })
-export class DocumentListComponent implements OnInit {
-	fillerContent = Array.from({ length: 5 }, () =>
-		`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-			 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
+export class DocumentListComponent implements OnChanges {
+	@Input() heading = 'Documentation';
+	@Input() organizationName: string;
 
-	constructor() { }
+	public documents$: Observable<PublicRecord[]>;
 
-	ngOnInit() {
+	constructor(
+		private dataservice: PublicRecordDataService
+	) { }
+
+	ngOnChanges(changes) {
+		if (changes.organizationName) {
+			this.documents$ = this.dataservice.fetchDocuments(this.organizationName);
+		}
 	}
-
 }

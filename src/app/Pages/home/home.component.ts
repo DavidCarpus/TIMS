@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Notice } from 'src/app/Components/notices/notices.component';
-import { NoticesService } from 'src/app/services/notices.service';
+import { PublicRecordDataService } from 'src/app/services/public-record-data.service';
 
 @Component({
 	selector: 'app-home',
@@ -12,11 +12,11 @@ export class HomeComponent implements OnInit {
 	public notices$: Observable<Notice[]>;
 
 	constructor(
-		private noticesData: NoticesService
+		private publicRecords: PublicRecordDataService
 	) { }
 
 	ngOnInit() {
-		this.notices$ = this.noticesData.fetchNotices('All');
+		this.notices$ = this.publicRecords.fetchNotices('All');
 	}
 
 }

@@ -1,2 +1,2 @@
 <h2>Agendas and Minutes</h2>
-<p *ngFor="let content of fillerContent">{{content}}</p>
+<p *ngFor="let content of (documents$|async)">{{content|json}}</p>

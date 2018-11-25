@@ -3,3 +3,11 @@
 <app-notices [items]='notices$|async'></app-notices>
 <app-contact-list></app-contact-list>
 <app-agendas-and-minutes></app-agendas-and-minutes>
+
+<app-organization-description [data]='organizationDescription$| async'></app-organization-description>
+
+<app-notices [items]='notices$|async'></app-notices>
+
+<app-agendas-and-minutes [organizationName]='organizationName$| async'></app-agendas-and-minutes>
+
+<app-document-list [organizationName]='organizationName$| async'></app-document-list>
