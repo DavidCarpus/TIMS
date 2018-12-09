@@ -6,7 +6,16 @@
 		{
 			"label": "server",
 			"type": "typescript",
+			// "option": "watch",
 			"tsconfig": "TIMS/server/tsconfig.json",
+			"problemMatcher": [
+				"$tsc"
+				// "$tsc-watch"
+			]
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "TIMS/tsconfig.json",
 			"problemMatcher": [
 				"$tsc"
 			]
