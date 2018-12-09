@@ -1,18 +1,17 @@
 import { RequestResponse, RxHttpRequestResponse } from '@akanass/rx-http-request';
+import { statSync } from 'fs-extra';
 import { IncomingHttpHeaders } from 'http2';
+import { lookup as mimeLookup } from 'mime-types';
 import { bindNodeCallback, Observable, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-
-var fse = require('fs-extra');
-var mime = require('mime-types')
 
 const { RxHR } = require('@akanass/rx-http-request');
 const CACHE_LOCATION = '/media/dcarpus/Archive/Home/Code/currentSites/miltonnh-us.com';
 const DOMAIN = 'miltonnh-us.com'.toUpperCase();
 const DOCUMENT_EXTENSIONS = ['.pdf', '.doc', '.docx'];
 
-const outputFile$ = bindNodeCallback(fse.outputFile);
-const readFile$ = bindNodeCallback(fse.readFile);
+const outputFile$ = bindNodeCallback(require('fs-extra').outputFile);
+const readFile$ = bindNodeCallback(require('fs-extra').readFile);
 
 class CacheData {
 	type = '';
@@ -24,7 +23,7 @@ class CacheData {
 }
 const stats = (fullPath: string) => {
 	try {
-		return fse.statSync(fullPath)
+		return statSync(fullPath)
 	} catch (e) {
 		return null
 	}
@@ -88,8 +87,9 @@ const uriCacheData = (uri: string, cacheFullPath: string): Observable<CacheData>
 function fetchRemoteURI(uri: string, cacheFullPath: string): Observable<CacheData> {
 	return uriCacheData(uri, cacheFullPath).pipe(mergeMap(cacheData => {
 		if (isBinaryType(cacheData.type)) {
+			const bin = { encoding: 'binary' }
 			return RxHR.getBuffer(uri).pipe(mergeMap((resp: RequestResponse) =>
-				outputFile$(cacheFullPath, resp.body, { encoding: 'binary' }).pipe(
+				outputFile$(cacheFullPath, resp.body, bin).pipe(
 					map(() => Object.assign(cacheData, { exists: true, fetched: true, body: null }))
 				)
 			));
@@ -106,7 +106,7 @@ function fetchRemoteURI(uri: string, cacheFullPath: string): Observable<CacheDat
 export function cacheFetchURI(uri: string): Observable<CacheData> {
 	const cacheFullPath = uriToCacheURI(uri);
 	if (localFileExists(cacheFullPath)) {
-		const type = mime.lookup(cacheFullPath);
+		const type = mimeLookup(cacheFullPath) || '';
 		const results = Object.assign(new CacheData(), {
 			modTime: modTime(cacheFullPath), type: type, exists: true, cacheFullPath: cacheFullPath,
 		});

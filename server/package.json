@@ -6,6 +6,8 @@
 	"dependencies": {
 		"@akanass/rx-http-request": "^3.1.0",
 		"@types/express": "^4.16.0",
+		"@types/fs-extra": "^5.0.4",
+		"@types/mime-types": "^2.1.0",
 		"@types/node": "^10.12.5",
 		"axios": "^0.18.0",
 		"commander": "^2.19.0",
